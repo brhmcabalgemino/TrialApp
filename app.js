@@ -3,7 +3,7 @@
 // Where RSVPs are sent. Left empty, they are only stored in the guest's own browser.
 // For the Google Sheet, deploy apps-script/Code.gs as a web app and paste its /exec URL
 // here (see README). Any endpoint that accepts a JSON POST also works.
-var FORM_ENDPOINT = "";
+var FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbyFRrujRi_pMigdoaBNWPqbLjxkFKkeS4nGzGtJwJ0FXaX5DzhjHJxy9Sc5wuM15BZl/exec";
 
 var WEDDING_DATE = new Date("2027-06-12T15:00:00+02:00");
 var STORAGE_KEY = "rsvp-entries";

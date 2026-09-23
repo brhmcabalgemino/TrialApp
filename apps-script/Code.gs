@@ -34,6 +34,13 @@ function doPost(e) {
   lock.waitLock(30000);
   try {
     var data = JSON.parse((e && e.postData && e.postData.contents) || '{}');
+
+    // A request that arrives without a usable body (a dropped redirect, a probe)
+    // must not leave a blank row behind.
+    if (!data.name && !data.email) {
+      return json({ ok: false, error: 'Empty submission' });
+    }
+
     var sheet = getSheet();
 
     var row = COLUMNS.map(function (key) {
