@@ -8,25 +8,6 @@ var FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbyFRrujRi_pMigdoaBN
 var WEDDING_DATE = new Date("2027-06-12T15:00:00+02:00");
 var STORAGE_KEY = "rsvp-entries";
 
-/* ---------- nav ---------- */
-(function nav() {
-  var toggle = document.querySelector(".nav-toggle");
-  var menu = document.getElementById("nav-menu");
-  if (!toggle || !menu) return;
-
-  toggle.addEventListener("click", function () {
-    var open = menu.classList.toggle("open");
-    toggle.setAttribute("aria-expanded", String(open));
-  });
-
-  menu.addEventListener("click", function (e) {
-    if (e.target.tagName === "A") {
-      menu.classList.remove("open");
-      toggle.setAttribute("aria-expanded", "false");
-    }
-  });
-})();
-
 /* ---------- countdown ---------- */
 (function countdown() {
   var root = document.getElementById("countdown");
@@ -231,13 +212,13 @@ function saveEntry(entry) {
     "<p>" + entries.length + " response(s) &middot; " + attending.length +
     " attending &middot; " + seats + " seat(s) reserved.</p>" +
     '<div class="admin-actions">' +
-    '<button class="btn btn-primary" id="admin-csv" type="button">Download CSV</button>' +
-    '<button class="btn btn-primary" id="admin-clear" type="button">Clear stored RSVPs</button>' +
+    '<button class="btn" id="admin-csv" type="button">Download CSV</button>' +
+    '<button class="btn" id="admin-clear" type="button">Clear stored RSVPs</button>' +
     "</div>";
 
   if (entries.length) {
     var cols = ["submittedAt", "name", "email", "phone", "attending", "guests", "meal", "diet", "shuttle", "message"];
-    html += "<table><thead><tr>" + cols.map(function (c) {
+    html += '<div class="admin-wrap"><table><thead><tr>' + cols.map(function (c) {
       return "<th>" + c + "</th>";
     }).join("") + "</tr></thead><tbody>";
     entries.forEach(function (e) {
@@ -245,7 +226,7 @@ function saveEntry(entry) {
         return "<td>" + escapeHtml(e[c] == null ? "" : String(e[c])) + "</td>";
       }).join("") + "</tr>";
     });
-    html += "</tbody></table>";
+    html += "</tbody></table></div>";
   }
 
   section.innerHTML = html;

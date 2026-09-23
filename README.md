@@ -78,3 +78,18 @@ storage only — it is a convenience for testing, not a shared dashboard.
 - Names, date, venue and copy: edit `index.html`.
 - Countdown target: `WEDDING_DATE` in `app.js`.
 - Colours, fonts and spacing: the `:root` custom properties in `styles.css`.
+
+### Photographs
+
+The three photo panels ship as placeholder gradients so the page looks finished before the
+photos exist. Drop your images into an `img/` folder and point the variables at them in the
+`:root` block of `styles.css`:
+
+```css
+--photo-hero:  url("img/hero.jpg");
+--photo-two:   url("img/couple.jpg");
+--photo-three: url("img/portrait.jpg");
+```
+
+Use portrait crops around 1200px wide. The hero already carries a dark gradient behind the
+names, so a photo with a busy lower third still reads.
