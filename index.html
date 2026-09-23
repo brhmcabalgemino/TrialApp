@@ -1,4 +1,181 @@
-hello!
-kj12b3uv12o3 
- 123 12o3h   32 1b23 123 1n2oi3 1no2i3123
- 123 1n2 31b2o3 21
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ava &amp; Noah — Wedding</title>
+<meta name="description" content="Wedding of Ava &amp; Noah — 12 June 2027, Villa Serena. Details, schedule and RSVP.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#rsvp">Skip to RSVP</a>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Main">
+    <a class="nav-brand" href="#top">A &amp; N</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">Menu</button>
+    <ul class="nav-menu" id="nav-menu">
+      <li><a href="#details">Details</a></li>
+      <li><a href="#schedule">Schedule</a></li>
+      <li><a href="#venue">Venue</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a class="nav-cta" href="#rsvp">RSVP</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <p class="hero-kicker">Together with their families</p>
+    <h1 class="hero-title">Ava <span>&amp;</span> Noah</h1>
+    <p class="hero-date">Saturday, 12 June 2027 &middot; Villa Serena, Como</p>
+    <div class="countdown" id="countdown" aria-live="polite">
+      <div><strong data-unit="days">&mdash;</strong><span>days</span></div>
+      <div><strong data-unit="hours">&mdash;</strong><span>hours</span></div>
+      <div><strong data-unit="minutes">&mdash;</strong><span>minutes</span></div>
+      <div><strong data-unit="seconds">&mdash;</strong><span>seconds</span></div>
+    </div>
+    <a class="btn btn-primary" href="#rsvp">Reserve your seat</a>
+  </section>
+
+  <section id="details" class="section">
+    <h2>The day</h2>
+    <div class="cards">
+      <article class="card">
+        <h3>Ceremony</h3>
+        <p class="card-meta">3:00 PM</p>
+        <p>Garden terrace, Villa Serena. Seating opens at 2:30 PM, so please arrive early.</p>
+      </article>
+      <article class="card">
+        <h3>Reception</h3>
+        <p class="card-meta">5:30 PM</p>
+        <p>Dinner, toasts and dancing in the Orangery until midnight.</p>
+      </article>
+      <article class="card">
+        <h3>Dress code</h3>
+        <p class="card-meta">Garden formal</p>
+        <p>Long dresses and suits. The lawn is soft, so block heels beat stilettos.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="schedule" class="section section-alt">
+    <h2>Schedule</h2>
+    <ol class="timeline">
+      <li><span class="time">2:30 PM</span><div><h3>Arrival &amp; welcome drinks</h3><p>Courtyard fountain</p></div></li>
+      <li><span class="time">3:00 PM</span><div><h3>Ceremony</h3><p>Garden terrace</p></div></li>
+      <li><span class="time">4:00 PM</span><div><h3>Aperitivo &amp; photos</h3><p>Lemon grove</p></div></li>
+      <li><span class="time">5:30 PM</span><div><h3>Dinner</h3><p>The Orangery</p></div></li>
+      <li><span class="time">8:00 PM</span><div><h3>Speeches &amp; cake</h3><p>The Orangery</p></div></li>
+      <li><span class="time">9:00 PM</span><div><h3>Dancing</h3><p>Until midnight</p></div></li>
+    </ol>
+  </section>
+
+  <section id="venue" class="section">
+    <h2>Venue &amp; stay</h2>
+    <div class="cards">
+      <article class="card">
+        <h3>Villa Serena</h3>
+        <p>Via del Lago 14, 22100 Como, Italy</p>
+        <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Como+Italy" target="_blank" rel="noopener">Open in Maps</a></p>
+      </article>
+      <article class="card">
+        <h3>Parking</h3>
+        <p>Free on-site parking. Shuttles run from Como San Giovanni station at 1:45 PM and 2:15 PM.</p>
+      </article>
+      <article class="card">
+        <h3>Where to stay</h3>
+        <p>Rooms held at Hotel Lario (10 min) and Albergo Verde (15 min) under &ldquo;Ava &amp; Noah&rdquo; until 1 May 2027.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="rsvp" class="section section-alt">
+    <h2>RSVP</h2>
+    <p class="section-lead">Kindly respond by <strong>1 May 2027</strong>. One form per household.</p>
+
+    <form class="rsvp-form" id="rsvp-form" novalidate>
+      <div class="field">
+        <label for="name">Full name <span class="req" aria-hidden="true">*</span></label>
+        <input id="name" name="name" type="text" autocomplete="name" required>
+        <p class="error" data-error-for="name"></p>
+      </div>
+
+      <div class="field">
+        <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+        <input id="email" name="email" type="email" autocomplete="email" required>
+        <p class="error" data-error-for="email"></p>
+      </div>
+
+      <div class="field">
+        <label for="phone">Phone</label>
+        <input id="phone" name="phone" type="tel" autocomplete="tel">
+      </div>
+
+      <fieldset class="field">
+        <legend>Will you join us?</legend>
+        <label class="choice"><input type="radio" name="attending" value="yes" checked> Joyfully accepts</label>
+        <label class="choice"><input type="radio" name="attending" value="no"> Regretfully declines</label>
+      </fieldset>
+
+      <div class="field" data-when-attending>
+        <label for="guests">Number of guests (including you)</label>
+        <input id="guests" name="guests" type="number" min="1" max="6" value="1" inputmode="numeric">
+        <p class="error" data-error-for="guests"></p>
+      </div>
+
+      <div class="field" data-when-attending>
+        <label for="meal">Meal preference</label>
+        <select id="meal" name="meal">
+          <option value="standard">Standard</option>
+          <option value="vegetarian">Vegetarian</option>
+          <option value="vegan">Vegan</option>
+          <option value="fish">Fish</option>
+          <option value="child">Child menu</option>
+        </select>
+      </div>
+
+      <div class="field" data-when-attending>
+        <label for="diet">Allergies or dietary notes</label>
+        <input id="diet" name="diet" type="text" placeholder="e.g. nut allergy">
+      </div>
+
+      <div class="field" data-when-attending>
+        <label class="choice"><input type="checkbox" name="shuttle" value="yes"> I need the station shuttle</label>
+      </div>
+
+      <div class="field">
+        <label for="message">Note to the couple</label>
+        <textarea id="message" name="message" rows="3"></textarea>
+      </div>
+
+      <button class="btn btn-primary" type="submit">Send RSVP</button>
+      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+    </form>
+
+    <p class="fineprint">Responses are saved in this browser. Set <code>FORM_ENDPOINT</code> in <code>app.js</code> to collect them centrally.</p>
+  </section>
+
+  <section id="faq" class="section">
+    <h2>Questions</h2>
+    <div class="faq">
+      <details><summary>Can I bring a plus-one?</summary><p>Your invitation lists the seats reserved for you. Enter that number in the RSVP form.</p></details>
+      <details><summary>Are children welcome?</summary><p>Yes. Choose the child menu for each little guest and we will set up a kids table.</p></details>
+      <details><summary>Is the venue accessible?</summary><p>Ceremony and dinner are step-free. Tell us in your note and we will reserve accessible seating and parking.</p></details>
+      <details><summary>What about gifts?</summary><p>Your presence is enough. If you insist, a honeymoon fund link goes out with the final details in April 2027.</p></details>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>Ava &amp; Noah &middot; 12 June 2027 &middot; <a href="mailto:hello@avaandnoah.example">hello@avaandnoah.example</a></p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
