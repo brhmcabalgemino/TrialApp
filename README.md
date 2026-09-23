@@ -25,16 +25,41 @@ Then visit http://localhost:8000.
 ## Collecting RSVPs
 
 By default every RSVP is stored in the guest's own browser (`localStorage`), which means
-only that guest sees it. To collect responses centrally, set `FORM_ENDPOINT` at the top of
-`app.js` to a form backend that accepts a JSON `POST` (Formspree, Getform, a Google Apps
-Script web app, or your own API):
+only that guest sees it. Set `FORM_ENDPOINT` at the top of `app.js` to send entries
+somewhere central instead. The payload is JSON: `name`, `email`, `phone`, `attending`,
+`guests`, `meal`, `diet`, `shuttle`, `message`, `submittedAt`.
 
-```js
-var FORM_ENDPOINT = "https://formspree.io/f/xxxxxxx";
-```
+### Saving to a Google Sheet
 
-The submitted payload contains: `name`, `email`, `phone`, `attending`, `guests`, `meal`,
-`diet`, `shuttle`, `message`, `submittedAt`.
+A spreadsheet's `.../pubhtml` "publish to web" link is read-only — it can be displayed but
+not written to. Writing needs an Apps Script web app bound to the sheet:
+
+1. Open the spreadsheet in Google Sheets (the editing URL, not the published one) and
+   choose **Extensions → Apps Script**.
+2. Replace the contents of `Code.gs` with [`apps-script/Code.gs`](apps-script/Code.gs)
+   from this repo and save.
+3. Choose **Deploy → New deployment → Web app**. Set **Execute as** to *Me* and
+   **Who has access** to *Anyone*, then deploy and approve the permission prompt.
+4. Copy the deployment's `/exec` URL and paste it into `app.js`:
+
+   ```js
+   var FORM_ENDPOINT = "https://script.google.com/macros/s/XXXXXXXX/exec";
+   ```
+
+5. Commit and push. Submit a test RSVP and confirm a row lands on the `RSVPs` tab.
+
+The script creates the `RSVPs` tab with a header row on first use and appends one row per
+submission. Opening the `/exec` URL in a browser returns `{"ok":true,"rows":N}`, which is a
+quick way to check the deployment is live.
+
+Two things to keep in mind: **Who has access: Anyone** is what lets guests submit without a
+Google login, and it also means anyone who learns the URL can append rows — for a wedding
+guest list that is normally an acceptable trade, but do not put anything sensitive in the
+sheet. And after editing the script you must run **Deploy → Manage deployments → Edit →
+New version**, otherwise the old code keeps serving.
+
+If the endpoint is unreachable, the RSVP still saves to the guest's browser, so the entry is
+recoverable from the `?admin` view on that device.
 
 ## Admin view
 

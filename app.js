@@ -1,7 +1,8 @@
 /* Wedding site — countdown, nav, RSVP handling. No build step, no dependencies. */
 
-// Set this to a form endpoint (Formspree, Getform, Google Apps Script, your own API)
-// to collect RSVPs centrally. Left empty, RSVPs are stored in the guest's browser only.
+// Where RSVPs are sent. Left empty, they are only stored in the guest's own browser.
+// For the Google Sheet, deploy apps-script/Code.gs as a web app and paste its /exec URL
+// here (see README). Any endpoint that accepts a JSON POST also works.
 var FORM_ENDPOINT = "";
 
 var WEDDING_DATE = new Date("2027-06-12T15:00:00+02:00");
@@ -193,12 +194,24 @@ function saveEntry(entry) {
       return Promise.resolve({ ok: stored });
     }
 
+    // Apps Script web apps do not answer CORS preflight requests, so post the JSON
+    // as text/plain there; doPost reads the raw body either way.
+    var isAppsScript = /script\.google(usercontent)?\.com/.test(FORM_ENDPOINT);
+    var contentType = isAppsScript ? "text/plain;charset=utf-8" : "application/json";
+
     return fetch(FORM_ENDPOINT, {
       method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify(data)
+      headers: { "Content-Type": contentType },
+      body: JSON.stringify(data),
+      redirect: "follow"
     })
-      .then(function (res) { return { ok: res.ok }; })
+      .then(function (res) {
+        if (!res.ok) return { ok: false };
+        return res.json().then(
+          function (body) { return { ok: body.ok !== false }; },
+          function () { return { ok: true }; }
+        );
+      })
       .catch(function () { return { ok: stored }; });
   }
 })();
