@@ -37,7 +37,8 @@ not written to. Writing needs an Apps Script web app bound to the sheet:
 1. Open the spreadsheet in Google Sheets (the editing URL, not the published one) and
    choose **Extensions → Apps Script**.
 2. Replace the contents of `Code.gs` with [`apps-script/Code.gs`](apps-script/Code.gs)
-   from this repo and save.
+   from this repo and save. `SPREADSHEET_ID` at the top names the target spreadsheet;
+   change it if the entries should land somewhere else.
 3. Choose **Deploy → New deployment → Web app**. Set **Execute as** to *Me* and
    **Who has access** to *Anyone*, then deploy and approve the permission prompt.
 4. Copy the deployment's `/exec` URL and paste it into `app.js`:
@@ -52,11 +53,16 @@ The script creates the `RSVPs` tab with a header row on first use and appends on
 submission. Opening the `/exec` URL in a browser returns `{"ok":true,"rows":N}`, which is a
 quick way to check the deployment is live.
 
-Two things to keep in mind: **Who has access: Anyone** is what lets guests submit without a
-Google login, and it also means anyone who learns the URL can append rows — for a wedding
-guest list that is normally an acceptable trade, but do not put anything sensitive in the
-sheet. And after editing the script you must run **Deploy → Manage deployments → Edit →
-New version**, otherwise the old code keeps serving.
+Three things to keep in mind:
+
+- **Who has access: Anyone** is what lets guests submit without a Google login. It also
+  means anyone who learns the `/exec` URL can append rows, so treat the sheet as
+  append-only and unverified input.
+- The sheet collects names, emails and phone numbers. Share it with named people rather
+  than leaving it on *anyone with the link*, since that link plus the spreadsheet id in
+  this repo is enough for anyone to read the guest list.
+- After editing the script, run **Deploy → Manage deployments → Edit → New version**,
+  otherwise the old code keeps serving.
 
 If the endpoint is unreachable, the RSVP still saves to the guest's browser, so the entry is
 recoverable from the `?admin` view on that device.

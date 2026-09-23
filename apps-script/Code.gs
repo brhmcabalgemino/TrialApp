@@ -1,14 +1,18 @@
 /**
  * RSVP collector for the wedding site.
  *
- * Deploy this from the Google Sheet that should receive the entries:
- *   Extensions > Apps Script, paste this file, then Deploy > New deployment >
- *   Web app, "Execute as: Me", "Who has access: Anyone".
- * Copy the resulting /exec URL into FORM_ENDPOINT in app.js.
+ * Deploy: Extensions > Apps Script from the target sheet (or a standalone
+ * project), paste this file, then Deploy > New deployment > Web app,
+ * "Execute as: Me", "Who has access: Anyone". Copy the resulting /exec URL
+ * into FORM_ENDPOINT in app.js.
  *
  * The site posts JSON as text/plain on purpose: Apps Script web apps do not
  * answer CORS preflight requests, and text/plain avoids triggering one.
  */
+
+// The spreadsheet that receives the entries. Blank falls back to the sheet this
+// script is bound to.
+var SPREADSHEET_ID = '1fSzin9gj-FCEcv6DBtl_j6Zvw4K3GtfLPSBDKFAJMWk';
 
 var SHEET_NAME = 'RSVPs';
 
@@ -52,7 +56,9 @@ function doGet() {
 }
 
 function getSheet() {
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ss = SPREADSHEET_ID
+    ? SpreadsheetApp.openById(SPREADSHEET_ID)
+    : SpreadsheetApp.getActiveSpreadsheet();
   var sheet = ss.getSheetByName(SHEET_NAME);
   if (!sheet) {
     sheet = ss.insertSheet(SHEET_NAME);
