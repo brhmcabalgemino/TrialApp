@@ -81,9 +81,17 @@ storage only — it is a convenience for testing, not a shared dashboard.
 
 ### Photographs
 
-The three photo panels ship as placeholder gradients so the page looks finished before the
-photos exist. Drop your images into an `img/` folder and point the variables at them in the
-`:root` block of `styles.css`:
+The three photo panels ship with sample artwork in `img/` — drawn as SVG, so nothing is
+downloaded from anywhere and there is no licence to worry about:
+
+| File | Panel |
+| --- | --- |
+| `img/placeholder-hero.svg` | Hero, behind the names |
+| `img/placeholder-couple.svg` | Break between the reception and the schedule |
+| `img/placeholder-portrait.svg` | Break above *Share the love* |
+
+Replace them with your own photographs by pointing the variables in the `:root` block of
+`styles.css` at your files:
 
 ```css
 --photo-hero:  url("img/hero.jpg");
@@ -91,5 +99,11 @@ photos exist. Drop your images into an `img/` folder and point the variables at 
 --photo-three: url("img/portrait.jpg");
 ```
 
-Use portrait crops around 1200px wide. The hero already carries a dark gradient behind the
-names, so a photo with a busy lower third still reads.
+Use crops around 1200px wide. The hero carries a dark gradient behind the names, so a photo
+with a busy lower third still reads.
+
+## Layout
+
+One paper column on a phone. From 600px the column gets rounded corners and a shadow; from
+1000px the two halves sit side by side as the two panels of the invitation. Type, spacing
+and panel heights scale with the viewport, so there is no fixed-width breakpoint to fight.

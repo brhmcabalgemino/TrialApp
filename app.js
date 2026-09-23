@@ -230,7 +230,8 @@ function saveEntry(entry) {
   }
 
   section.innerHTML = html;
-  document.querySelector("main").appendChild(section);
+  // Below the panels, not inside them: on wide screens the layout is a flex row.
+  (document.querySelector(".page") || document.body).appendChild(section);
 
   section.querySelector("#admin-csv").addEventListener("click", function () {
     downloadCsv(entries);

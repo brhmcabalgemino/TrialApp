@@ -20,10 +20,10 @@
 
   --col: 520px;
 
-  /* Placeholder imagery — replace with your own photographs. */
-  --photo-hero: linear-gradient(160deg, #6f6553 0%, #9a8f76 45%, #c7bda4 100%);
-  --photo-two: linear-gradient(200deg, #8d876f 0%, #b6ad91 60%, #d8cfb6 100%);
-  --photo-three: linear-gradient(140deg, #7d7561 0%, #a79c81 50%, #cbc1a6 100%);
+  /* Sample artwork — replace the three files, or point these at your own photographs. */
+  --photo-hero: url("img/placeholder-hero.svg");
+  --photo-two: url("img/placeholder-couple.svg");
+  --photo-three: url("img/placeholder-portrait.svg");
 }
 
 * { box-sizing: border-box; }
@@ -49,16 +49,40 @@ body {
     var(--shell);
 }
 
-.paper {
+/* One paper column on a phone; the two panels of the invitation side by side
+   once there is room for them. */
+.layout {
+  display: flex;
+  flex-direction: column;
   max-width: var(--col);
   margin: 0 auto;
+}
+
+.col {
   background: var(--paper);
   overflow: hidden;
 }
 
 @media (min-width: 600px) {
   .page { padding: 28px 16px; }
-  .paper { border-radius: 28px; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45); }
+  .col { border-radius: 26px; box-shadow: 0 24px 70px rgba(0, 0, 0, 0.42); }
+  .layout { gap: 22px; }
+}
+
+@media (min-width: 1000px) {
+  :root { --col: 1000px; }
+  .layout {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 26px;
+  }
+  .col { flex: 1 1 0; min-width: 0; }
+  .page { padding: 40px 24px; }
+}
+
+@media (min-width: 1240px) {
+  :root { --col: 1120px; }
+  .page { padding: 56px 24px; }
 }
 
 a { color: var(--sage-dark); }
@@ -146,37 +170,37 @@ h1, h2 { font-family: var(--serif); font-weight: 400; margin: 0; }
 }
 
 .photo-hero { background-image: var(--photo-hero); }
-.photo-two { background-image: var(--photo-two); min-height: 260px; }
-.photo-three { background-image: var(--photo-three); min-height: 240px; }
+.photo-two { background-image: var(--photo-two); min-height: clamp(200px, 34vw, 300px); }
+.photo-three { background-image: var(--photo-three); min-height: clamp(190px, 32vw, 280px); }
 
 .torn-top::before,
 .torn-bottom::after {
   content: "";
   position: absolute;
   left: 0; right: 0;
-  height: 16px;
+  height: 14px;
   background-color: var(--paper);
   -webkit-mask-repeat: repeat-x; mask-repeat: repeat-x;
-  -webkit-mask-size: 120px 16px; mask-size: 120px 16px;
+  -webkit-mask-size: 160px 14px; mask-size: 160px 14px;
   pointer-events: none;
 }
 
 .torn-top::before {
   top: -1px;
-  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 20'><path d='M0,0 H120 V13 L108,16 96,11 84,15 72,10 60,14 48,9 36,15 24,11 12,16 0,12 Z' fill='white'/></svg>");
-  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 20'><path d='M0,0 H120 V13 L108,16 96,11 84,15 72,10 60,14 48,9 36,15 24,11 12,16 0,12 Z' fill='white'/></svg>");
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 14' preserveAspectRatio='none'><path d='M0,0 H160 V9.5 L150,12 141,8.4 131,11.6 120,7.6 111,11 101,7.2 92,10.4 82,6.8 73,10.6 63,7 54,10.2 44,6.6 35,10 25,7.4 16,11 6,8 0,11.4 Z' fill='white'/></svg>");
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 14' preserveAspectRatio='none'><path d='M0,0 H160 V9.5 L150,12 141,8.4 131,11.6 120,7.6 111,11 101,7.2 92,10.4 82,6.8 73,10.6 63,7 54,10.2 44,6.6 35,10 25,7.4 16,11 6,8 0,11.4 Z' fill='white'/></svg>");
 }
 
 .torn-bottom::after {
   bottom: -1px;
-  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 20'><path d='M0,20 H120 V7 L108,4 96,9 84,5 72,10 60,6 48,11 36,5 24,9 12,4 0,8 Z' fill='white'/></svg>");
-  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 20'><path d='M0,20 H120 V7 L108,4 96,9 84,5 72,10 60,6 48,11 36,5 24,9 12,4 0,8 Z' fill='white'/></svg>");
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 14' preserveAspectRatio='none'><path d='M0,14 H160 V4.5 L150,2 141,5.6 131,2.4 120,6.4 111,3 101,6.8 92,3.6 82,7.2 73,3.4 63,7 54,3.8 44,7.4 35,4 25,6.6 16,3 6,6 0,2.6 Z' fill='white'/></svg>");
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 14' preserveAspectRatio='none'><path d='M0,14 H160 V4.5 L150,2 141,5.6 131,2.4 120,6.4 111,3 101,6.8 92,3.6 82,7.2 73,3.4 63,7 54,3.8 44,7.4 35,4 25,6.6 16,3 6,6 0,2.6 Z' fill='white'/></svg>");
 }
 
 /* ---------- hero ---------- */
 
 .hero {
-  min-height: 460px;
+  min-height: clamp(400px, 78vw, 560px);
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -196,8 +220,9 @@ h1, h2 { font-family: var(--serif); font-weight: 400; margin: 0; }
 }
 
 .hero h1 {
-  font-size: clamp(3rem, 14vw, 4.2rem);
+  font-size: clamp(2.5rem, 11vw, 3.9rem);
   margin: 6px 0 4px;
+  overflow-wrap: break-word;
   text-shadow: 0 2px 18px rgba(0, 0, 0, 0.3);
 }
 
@@ -212,7 +237,7 @@ h1, h2 { font-family: var(--serif); font-weight: 400; margin: 0; }
 /* ---------- blocks ---------- */
 
 .block {
-  padding: 40px 28px;
+  padding: clamp(32px, 7vw, 46px) clamp(20px, 6vw, 36px);
   text-align: center;
 }
 
@@ -226,7 +251,7 @@ h1, h2 { font-family: var(--serif); font-weight: 400; margin: 0; }
 
 .band .icon { stroke: #3d4a4f; }
 
-.countdown-block { padding: 30px 20px 26px; }
+.countdown-block { padding: 28px 14px 24px; }
 
 .countdown {
   display: flex;
@@ -235,8 +260,9 @@ h1, h2 { font-family: var(--serif); font-weight: 400; margin: 0; }
 }
 
 .countdown > div {
-  flex: 1;
-  padding: 0 6px;
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 0 4px;
   border-right: 1px solid var(--line);
 }
 
@@ -245,15 +271,15 @@ h1, h2 { font-family: var(--serif); font-weight: 400; margin: 0; }
 .countdown strong {
   display: block;
   font-family: var(--serif);
-  font-size: clamp(1.8rem, 8vw, 2.5rem);
+  font-size: clamp(1.5rem, 6.4vw, 2.4rem);
   font-weight: 400;
   font-variant-numeric: tabular-nums;
   line-height: 1.1;
 }
 
 .countdown span {
-  font-size: 0.66rem;
-  letter-spacing: 0.16em;
+  font-size: clamp(0.56rem, 2.4vw, 0.66rem);
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink-soft);
 }
@@ -517,7 +543,13 @@ summary:focus-visible {
 
 /* ---------- admin ---------- */
 
-.admin { padding: 30px 20px 50px; background: var(--paper-warm); }
+.admin {
+  max-width: var(--col);
+  margin: 22px auto 0;
+  padding: 30px 20px 40px;
+  background: var(--paper-warm);
+  border-radius: 26px;
+}
 .admin h2 { font-size: 1.6rem; margin-bottom: 8px; }
 .admin table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
 .admin th, .admin td { border: 1px solid var(--line); padding: 6px 8px; text-align: left; }

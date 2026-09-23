@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Illustration of olive branches on a warm background">
+  <defs>
+    <linearGradient id="warm" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#cfc3a6"/>
+      <stop offset="55%" stop-color="#bdb092"/>
+      <stop offset="100%" stop-color="#a49877"/>
+    </linearGradient>
+    <radialGradient id="bloom" cx="0.3" cy="0.25" r="0.7">
+      <stop offset="0%" stop-color="#f6ecd6" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#f6ecd6" stop-opacity="0"/>
+    </radialGradient>
+    <g id="leafSpray">
+      <path d="M0 0 C60 -6 120 -4 180 4" stroke="#5f6a45" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      <g fill="#6b7750">
+        <ellipse cx="28" cy="-16" rx="17" ry="9" transform="rotate(-26 28 -16)"/>
+        <ellipse cx="62" cy="-20" rx="18" ry="9" transform="rotate(-18 62 -20)"/>
+        <ellipse cx="98" cy="-18" rx="17" ry="9" transform="rotate(-24 98 -18)"/>
+        <ellipse cx="134" cy="-12" rx="15" ry="8" transform="rotate(-20 134 -12)"/>
+        <ellipse cx="40" cy="20" rx="17" ry="9" transform="rotate(24 40 20)"/>
+        <ellipse cx="76" cy="24" rx="18" ry="9" transform="rotate(18 76 24)"/>
+        <ellipse cx="112" cy="22" rx="16" ry="8" transform="rotate(26 112 22)"/>
+        <ellipse cx="150" cy="16" rx="14" ry="7" transform="rotate(20 150 16)"/>
+      </g>
+      <g fill="#4e5a3a" opacity="0.85">
+        <circle cx="56" cy="6" r="6"/>
+        <circle cx="104" cy="2" r="5"/>
+      </g>
+    </g>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#warm)"/>
+  <rect width="800" height="600" fill="url(#bloom)"/>
+
+  <g opacity="0.92">
+    <use href="#leafSpray" x="90" y="150"/>
+    <use href="#leafSpray" x="710" y="170" transform="scale(-1,1) translate(-1420,0)"/>
+    <use href="#leafSpray" x="120" y="430" transform="rotate(-8 120 430)"/>
+    <use href="#leafSpray" x="700" y="450" transform="scale(-1,1) translate(-1400,0) rotate(-6 700 450)"/>
+  </g>
+
+  <g fill="none" stroke="#f3ead6" stroke-width="2" opacity="0.55">
+    <circle cx="400" cy="300" r="96"/>
+  </g>
+  <g fill="#f3ead6" opacity="0.8">
+    <path d="M400 338 c-30-22-52-40-52-62 0-16 12-28 27-28 11 0 20 6 25 14 5-8 14-14 25-14 15 0 27 12 27 28 0 22-22 40-52 62 z"/>
+  </g>
+</svg>

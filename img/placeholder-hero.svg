@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000" role="img" aria-label="Illustration of a couple at sunset">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6d6552"/>
+      <stop offset="38%" stop-color="#b09a76"/>
+      <stop offset="68%" stop-color="#d9bd93"/>
+      <stop offset="100%" stop-color="#c2a67f"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ffeccb" stop-opacity="0.95"/>
+      <stop offset="55%" stop-color="#f2d6a4" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#f2d6a4" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="hillFar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9a8e73"/>
+      <stop offset="100%" stop-color="#8a7f66"/>
+    </linearGradient>
+    <linearGradient id="hillMid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7b7059"/>
+      <stop offset="100%" stop-color="#6a6049"/>
+    </linearGradient>
+    <linearGradient id="hillNear" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#554d3b"/>
+      <stop offset="100%" stop-color="#3f3830"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="1000" fill="url(#sky)"/>
+  <circle cx="400" cy="600" r="330" fill="url(#glow)"/>
+  <circle cx="400" cy="602" r="74" fill="#ffe9c4" opacity="0.85"/>
+
+  <!-- distant ridges -->
+  <path d="M0 636 C120 596 210 620 300 606 C400 590 470 618 560 604 C650 590 720 612 800 598 L800 1000 L0 1000 Z" fill="url(#hillFar)" opacity="0.85"/>
+  <path d="M0 712 C130 672 240 700 340 684 C450 666 540 696 640 682 C710 672 760 686 800 678 L800 1000 L0 1000 Z" fill="url(#hillMid)" opacity="0.9"/>
+
+  <!-- couple -->
+  <g fill="#2f2a22">
+    <ellipse cx="400" cy="806" rx="134" ry="16" opacity="0.35"/>
+    <circle cx="352" cy="578" r="33"/>
+    <path d="M352 600 C396 616 410 676 408 806 L298 806 C296 676 310 616 352 600 Z"/>
+    <circle cx="452" cy="560" r="35"/>
+    <path d="M452 584 C500 602 516 668 514 806 L396 806 C394 668 408 602 452 584 Z"/>
+    <!-- her arm across his back -->
+    <path d="M372 644 C404 630 436 628 464 640 C440 656 404 660 376 654 Z" opacity="0.95"/>
+  </g>
+
+  <!-- foreground bank -->
+  <path d="M0 826 C140 794 250 820 360 812 C480 802 560 826 660 818 C730 812 770 822 800 816 L800 1000 L0 1000 Z" fill="url(#hillNear)"/>
+
+  <!-- grasses -->
+  <g stroke="#2b261f" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.75">
+    <path d="M60 1000 C58 940 70 904 84 876"/>
+    <path d="M104 1000 C100 946 88 916 74 892"/>
+    <path d="M160 1000 C158 950 168 918 182 894"/>
+    <path d="M620 1000 C618 944 628 910 644 884"/>
+    <path d="M678 1000 C674 950 662 920 648 898"/>
+    <path d="M736 1000 C734 946 744 914 758 890"/>
+  </g>
+</svg>

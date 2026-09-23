@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" width="800" height="560" role="img" aria-label="Illustration of a couple walking through a field">
+  <defs>
+    <linearGradient id="sky2b" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7f7761"/>
+      <stop offset="45%" stop-color="#ab9f82"/>
+      <stop offset="100%" stop-color="#d3c5a4"/>
+    </linearGradient>
+    <radialGradient id="glow2" cx="0.72" cy="0.62" r="0.55">
+      <stop offset="0%" stop-color="#ffefd2" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ffefd2" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fieldb" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8d845f"/>
+      <stop offset="100%" stop-color="#5d5741"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="560" fill="url(#sky2b)"/>
+  <circle cx="576" cy="348" r="250" fill="url(#glow2)"/>
+  <circle cx="576" cy="350" r="52" fill="#ffeecd" opacity="0.8"/>
+
+  <path d="M0 356 C110 330 190 352 280 342 C380 330 450 352 540 342 C630 332 720 350 800 338 L800 560 L0 560 Z" fill="#7c7358" opacity="0.85"/>
+  <path d="M0 410 C120 386 220 406 330 396 C450 386 540 408 650 398 C720 392 770 402 800 396 L800 560 L0 560 Z" fill="url(#fieldb)"/>
+
+  <!-- couple walking -->
+  <g fill="#2e2921">
+    <circle cx="318" cy="288" r="26"/>
+    <path d="M318 316 C344 330 352 372 350 432 L286 432 C284 372 294 330 318 316 Z"/>
+    <path d="M296 432 L300 500 L312 500 L316 436 Z"/>
+    <path d="M338 434 L346 500 L358 500 L352 432 Z"/>
+    <circle cx="392" cy="276" r="28"/>
+    <path d="M392 306 C420 320 430 366 428 432 L358 432 C356 366 368 320 392 306 Z"/>
+    <path d="M372 432 L374 500 L388 500 L392 436 Z"/>
+    <path d="M412 434 L422 500 L436 500 L428 432 Z"/>
+    <!-- held hands -->
+    <path d="M338 354 C352 346 366 346 380 352 C366 362 350 362 340 358 Z"/>
+  </g>
+
+  <!-- tall grass -->
+  <g stroke="#3a3527" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.8">
+    <path d="M40 560 C38 512 48 482 62 460"/>
+    <path d="M88 560 C84 514 74 490 60 470"/>
+    <path d="M148 560 C146 516 156 488 170 468"/>
+    <path d="M206 560 C202 518 192 494 180 476"/>
+    <path d="M594 560 C592 514 602 486 616 464"/>
+    <path d="M650 560 C646 516 636 492 624 474"/>
+    <path d="M712 560 C710 514 720 486 734 464"/>
+    <path d="M764 560 C760 518 750 494 738 478"/>
+  </g>
+</svg>
